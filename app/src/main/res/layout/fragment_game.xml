@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/fragment_victory"
+        layout="@layout/victory_layout"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/fragment_defeat"
+        layout="@layout/defeat_layout"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/game_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/vs_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="-4dp"
+                app:layout_constraintDimensionRatio="W, 0.72:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/vs_background" />
+
+            <LinearLayout
+                android:id="@+id/parameters_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vs_image">
+
+                <LinearLayout
+                    android:id="@+id/player_parameters_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_M"
+                    android:layout_marginTop="@dimen/margin_M"
+                    android:layout_marginEnd="@dimen/margin_M"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_player_parameters_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/player_parameters_title"
+                        android:textSize="@dimen/medium_text_size"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/size"
+                        android:layout_marginTop="@dimen/margin_M"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/image_health_player"
+                            android:layout_width="@dimen/image_size_small"
+                            android:layout_height="@dimen/image_size_small"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="@dimen/margin_M"
+                            app:srcCompat="@drawable/health" />
+
+                        <TextView
+                            android:id="@+id/tv_health_player"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/health"
+                            android:textSize="@dimen/medium_text_size" />
+
+                        <TextView
+                            android:id="@+id/tv_health_player_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/margin_S"
+                            android:textSize="@dimen/medium_text_size"
+                            tools:text="100" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/size"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/image_attack_player"
+                            android:layout_width="@dimen/image_size_small"
+                            android:layout_height="@dimen/image_size_small"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="@dimen/margin_M"
+                            app:srcCompat="@drawable/attack" />
+
+                        <TextView
+                            android:id="@+id/tv_attack_player"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/medium_text_size"
+                            tools:text="Атака: 15" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/size"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/image_protection_player"
+                            android:layout_width="@dimen/image_size_small"
+                            android:layout_height="@dimen/image_size_small"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="@dimen/margin_M"
+                            app:srcCompat="@drawable/protection" />
+
+                        <TextView
+                            android:id="@+id/tv_protection_player"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/medium_text_size"
+                            tools:text="Защита: 20" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/size"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/image_damage_player"
+                            android:layout_width="@dimen/image_size_small"
+                            android:layout_height="@dimen/image_size_small"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="@dimen/margin_M"
+                            app:srcCompat="@drawable/damage" />
+
+                        <TextView
+                            android:id="@+id/tv_damage_player"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/medium_text_size"
+                            tools:text="Урон: 3-7" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/size"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/image_attack_modifier_player"
+                            android:layout_width="@dimen/image_size_small"
+                            android:layout_height="@dimen/image_size_small"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="@dimen/margin_M"
+                            app:srcCompat="@drawable/attack_modifier" />
+
+                        <TextView
+                            android:id="@+id/tv_attack_modifier_player"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/medium_text_size"
+                            tools:text="Модификатор \nатаки: 5" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/monster_parameters_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_M"
+                    android:layout_marginEnd="@dimen/margin_M"
+                    android:layout_weight="50"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_monster_parameters_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/bug_parameters_title"
+                        android:textSize="@dimen/medium_text_size"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/size"
+                        android:layout_marginTop="@dimen/margin_M"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/image_health_monster"
+                            android:layout_width="@dimen/image_size_small"
+                            android:layout_height="@dimen/image_size_small"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="@dimen/margin_M"
+                            app:srcCompat="@drawable/health" />
+
+                        <TextView
+                            android:id="@+id/tv_health_monster"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/health"
+                            android:textSize="@dimen/medium_text_size" />
+
+                        <TextView
+                            android:id="@+id/tv_health_monster_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/margin_S"
+                            android:textSize="@dimen/medium_text_size"
+                            tools:text="100" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/size"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/image_attack_monster"
+                            android:layout_width="@dimen/image_size_small"
+                            android:layout_height="@dimen/image_size_small"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="@dimen/margin_M"
+                            app:srcCompat="@drawable/attack" />
+
+                        <TextView
+                            android:id="@+id/tv_attack_monster"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/medium_text_size"
+                            tools:text="Атака: 15" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/size"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/image_protection_monster"
+                            android:layout_width="@dimen/image_size_small"
+                            android:layout_height="@dimen/image_size_small"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="@dimen/margin_M"
+                            app:srcCompat="@drawable/protection" />
+
+                        <TextView
+                            android:id="@+id/tv_protection_monster"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/medium_text_size"
+                            tools:text="Защита: 20" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/size"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/image_damage_monster"
+                            android:layout_width="@dimen/image_size_small"
+                            android:layout_height="@dimen/image_size_small"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="@dimen/margin_M"
+                            app:srcCompat="@drawable/damage" />
+
+                        <TextView
+                            android:id="@+id/tv_damage_monster"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/medium_text_size"
+                            tools:text="Урон: 3-7" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/size"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/image_attack_modifier_monster"
+                            android:layout_width="@dimen/image_size_small"
+                            android:layout_height="@dimen/image_size_small"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="@dimen/margin_M"
+                            app:srcCompat="@drawable/attack_modifier" />
+
+                        <TextView
+                            android:id="@+id/tv_attack_modifier_monster"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/medium_text_size"
+                            tools:text="Модификатор \nатаки: 5" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_action_heal_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_M"
+                android:layout_marginTop="@dimen/margin_M"
+                android:layout_marginEnd="@dimen/margin_M"
+                android:background="@drawable/rounded_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/parameters_layout">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/action_heal_card_view"
+                    android:layout_width="@dimen/image_size_heal"
+                    android:layout_height="@dimen/image_size_heal"
+                    android:layout_marginVertical="@dimen/margin_M"
+                    android:layout_marginStart="@dimen/margin_M"
+                    android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                    app:cardCornerRadius="@dimen/radius_big">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:src="@drawable/cup" />
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/lost_hp_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/margin_M"
+                        android:layout_marginTop="@dimen/margin_M"
+                        android:text="@string/caps_left"
+                        android:textSize="@dimen/medium_text_size" />
+
+                    <TextView
+                        android:id="@+id/count_cups"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/margin_M"
+                        android:textSize="@dimen/large_text_size"
+                        tools:text="3" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/description_skill"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/margin_M"
+                    android:text="@string/cap_bonus"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/medium_text_size"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/throw_dice_btn"
+                style="@style/Widget.HHGame.Button.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size"
+                android:layout_marginHorizontal="@dimen/margin_M"
+                android:layout_marginTop="@dimen/margin_M"
+                android:background="@color/hh_color"
+                android:text="@string/throw_dice"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_action_heal_layout" />
+
+            <TextView
+                android:id="@+id/tv_roll_result_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_M"
+                android:layout_marginTop="@dimen/margin_M"
+                android:background="@drawable/rounded_background"
+                android:padding="@dimen/margin_S"
+                android:text="@string/action_result"
+                android:textSize="@dimen/large_text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/throw_dice_btn" />
+
+            <TextView
+                android:id="@+id/tv_roll_result_player"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_M"
+                android:layout_marginTop="@dimen/margin_M"
+                android:background="@drawable/rounded_background"
+                android:padding="@dimen/margin_S"
+                android:text="@string/player_roll"
+                android:textSize="@dimen/medium_text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_roll_result_title" />
+
+            <TextView
+                android:id="@+id/tv_roll_result_player_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_M"
+                android:layout_marginTop="@dimen/margin_XSL"
+                android:textSize="@dimen/medium_text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/tv_roll_result_player"
+                app:layout_constraintTop_toBottomOf="@+id/tv_roll_result_title"
+                tools:text="Успех" />
+
+            <LinearLayout
+                android:id="@+id/damage_player_after_throw_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/size"
+                android:layout_marginStart="@dimen/margin_M"
+                android:layout_marginTop="@dimen/margin_M"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_roll_result_player">
+
+                <ImageView
+                    android:id="@+id/image_damage_player_after_throw"
+                    android:layout_width="@dimen/image_size_small"
+                    android:layout_height="@dimen/image_size_small"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/margin_M"
+                    app:srcCompat="@drawable/damage" />
+
+                <TextView
+                    android:id="@+id/tv_damage_player_after_throw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/margin_S"
+                    android:text="@string/default_damage_value"
+                    android:textSize="@dimen/medium_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/damage_monster_after_throw_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/size"
+                android:layout_marginStart="@dimen/margin_M"
+                android:layout_marginTop="@dimen/margin_M"
+                android:layout_marginBottom="@dimen/margin_M"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_roll_result_monster">
+
+                <ImageView
+                    android:id="@+id/image_damage_monster_after_throw"
+                    android:layout_width="@dimen/image_size_small"
+                    android:layout_height="@dimen/image_size_small"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/margin_M"
+                    app:srcCompat="@drawable/damage" />
+
+                <TextView
+                    android:id="@+id/tv_damage_monster_after_throw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/margin_S"
+                    android:text="@string/default_damage_value"
+                    android:textSize="@dimen/medium_text_size" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_roll_result_monster"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_M"
+                android:layout_marginTop="@dimen/margin_M"
+                android:background="@drawable/rounded_background"
+                android:padding="@dimen/margin_S"
+                android:text="@string/monster_roll"
+                android:textSize="@dimen/medium_text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/damage_player_after_throw_layout" />
+
+            <TextView
+                android:id="@+id/tv_roll_result_monster_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_M"
+                android:layout_marginTop="@dimen/margin_XSL"
+                android:textSize="@dimen/medium_text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/tv_roll_result_monster"
+                app:layout_constraintTop_toBottomOf="@+id/damage_player_after_throw_layout"
+                tools:text="Неудача" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</LinearLayout>

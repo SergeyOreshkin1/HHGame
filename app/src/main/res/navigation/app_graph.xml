@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_graph"
+    app:startDestination="@id/mainMenuFragment">
+
+    <fragment
+        android:id="@+id/mainMenuFragment"
+        android:name="com.example.hhgame.presentation.main_menu.MainMenuFragment"
+        tools:layout="@layout/fragment_main_menu">
+        <action
+            android:id="@+id/action_main_menu_fragment_to_player_parameters_fragment"
+            app:destination="@id/playerParametersFragment" />
+        <action
+            android:id="@+id/action_main_menu_fragment_to_bug_parameters_fragment"
+            app:destination="@id/bugParametersFragment" />
+        <action
+            android:id="@+id/action_main_menu_fragment_to_game_fragment"
+            app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_main_menu_fragment_to_about_app_fragment"
+            app:destination="@id/aboutAppFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/playerParametersFragment"
+        android:name="com.example.hhgame.presentation.parameters_fragments.PlayerParametersFragment"
+        tools:layout="@layout/fragment_player_parameters">
+    </fragment>
+
+    <fragment
+        android:id="@+id/aboutAppFragment"
+        android:name="com.example.hhgame.presentation.about_app_fragment.AboutAppFragment"
+        tools:layout="@layout/fragment_about_app">
+    </fragment>
+
+    <fragment
+        android:id="@+id/bugParametersFragment"
+        android:name="com.example.hhgame.presentation.parameters_fragments.BugParametersFragment"
+        tools:layout="@layout/fragment_bug_parameters">
+    </fragment>
+
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.hhgame.presentation.game.GameFragment"
+        tools:layout="@layout/fragment_game">
+        <argument
+            android:name="bug"
+            app:argType="com.example.hhgame.data.Bug" />
+        <argument
+            android:name="player"
+            app:argType="com.example.hhgame.data.Player" />
+    </fragment>
+
+</navigation>

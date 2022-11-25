@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  Text Size  -->
+    <dimen name="large_text_size">20sp</dimen>
+    <dimen name="medium_text_size">16sp</dimen>
+    <dimen name="regular_text_size">14sp</dimen>
+
+    <!--  Margin  -->
+    <dimen name="margin_S">8dp</dimen>
+    <dimen name="margin_M">16dp</dimen>
+    <dimen name="margin_L">20dp</dimen>
+    <dimen name="margin_XSL">24dp</dimen>
+    <dimen name="margin_XL">32dp</dimen>
+    <dimen name="margin_XXL">40dp</dimen>
+
+    <!--  size  -->
+    <dimen name="size">60dp</dimen>
+
+    <!--  Radius  -->
+    <dimen name="radius">8dp</dimen>
+    <dimen name="radius_big">16dp</dimen>
+
+    <!--  ImageView  -->
+    <dimen name="image_size">280dp</dimen>
+    <dimen name="image_size_medium">150dp</dimen>
+    <dimen name="image_size_heal">90dp</dimen>
+    <dimen name="image_size_small">40dp</dimen>
+    <dimen name="vs_image_size">290dp</dimen>
+
+</resources>

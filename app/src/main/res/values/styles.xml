@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance" parent="android:TextAppearance" />
+
+    <style name="TextAppearance.TextField">
+        <item name="android:textSize">@dimen/medium_text_size</item>
+    </style>
+
+    <style name="TextAppearance.TextField.Hint">
+        <item name="android:textSize">@dimen/regular_text_size</item>
+    </style>
+
+    <!--  HHGame TextInputLayout  -->
+    <style name="Widget.HHGame.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxCornerRadiusTopEnd">@dimen/radius</item>
+        <item name="boxCornerRadiusTopStart">@dimen/radius</item>
+        <item name="boxBackgroundColor">@color/control</item>
+        <item name="boxStrokeColor">@color/hh_color</item>
+        <item name="android:textAppearance">
+            @style/TextAppearance.TextField
+        </item>
+        <item name="hintTextAppearance">
+            @style/TextAppearance.TextField.Hint
+        </item>
+        <item name="android:textColorHint">@color/silver_chalice</item>
+        <item name="hintTextColor">@color/silver_chalice</item>
+        <item name="endIconTint">@color/black</item>
+    </style>
+
+    <!--  HHGame Button  -->
+    <style name="Widget.HHGame.Button.Primary" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="backgroundTint">@color/selector_btn</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/medium_text_size</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:foreground">?android:attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+</resources>
